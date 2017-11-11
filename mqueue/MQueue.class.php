@@ -30,8 +30,7 @@ class MQueue
     $data[MQueue::MQUEUE_TYPE_ID] = $mQueueType;
 
     //prevent script hanging and delaying the main process
-    $connector->setTimeout(3);
-
+    $connector->setTimeout(CoreConfig::WS_TIMEOUT);
     $connector->setPostParams($data);
     $connector->loadContent(CoreConfig::MESSAGE_QUEUE_URL);
 
